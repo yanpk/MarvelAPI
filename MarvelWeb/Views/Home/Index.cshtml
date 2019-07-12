@@ -1,0 +1,51 @@
+﻿<h1>Marvel Comics API</h1>
+
+@model List<Result>
+@*<div style="overflow: hidden; margin-top: 50px;">
+        <div style="float: left; margin-right: 50px;">
+            <img src="@string.Concat(item.thumbnail.path, ".", item.thumbnail.extension)" height="200" width="200" />
+        </div>
+        <div style="margin-left: 50px;">
+            <h2>@item.id + "-" @item.name</h2>
+            <p>@item.description</p>
+            <a href="@item.resourceURI">Ver Herói</a>
+            <p>Quadrinhos Disponíveis: @item.comics.available</p>
+            <p>Link da coleção: @item.comics.collectionURI</p>
+            <ul style="margin-right: 50px;float: left;">
+                @foreach (var comics in item.comics.items)
+                {
+                    <li>@comics.name - <a href="@comics.resourceURI">Link</a></li>
+                }
+            </ul>
+            <p>Retorno: @item.comics.returned</p>
+        </div>
+    </div>*@
+
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-sm-4">
+
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="@string.Concat(item.thumbnail.path, ".", item.thumbnail.extension)" alt="@item.thumbnail.path" style="width: 200px;" />
+                    <div class="card-body">
+                        <h5 class="card-title">@item.name</h5>
+                        <p class="card-text">@item.description</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        @foreach (var comics in item.comics.items)
+                        {
+                            <li class="list-group-item">@comics.name</li>
+                        }
+                    </ul>
+                    <div class="card-body">
+                        <a href="@item.resourceURI" class="card-link">Ver Herói</a>
+                        <a href="@item.series.collectionURI" class="card-link">Séries</a>
+                    </div>
+                </div>
+            </div>
+
+        }
+    </div>
+</div>
