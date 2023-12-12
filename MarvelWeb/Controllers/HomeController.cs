@@ -25,7 +25,7 @@ namespace MarvelWeb.Controllers
         {
             var MarvelRest = new MarvelRest();
             var result = MarvelRest.GetCharacters();
-
+            
             return View(result);
         }
 
