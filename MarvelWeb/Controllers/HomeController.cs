@@ -60,8 +60,8 @@ namespace MarvelWeb.Controllers
             MarvelRest rest = new MarvelRest();
             var request = new RestRequest();
             request.RequestFormat = DataFormat.Json;
-            string publickey = "***";
-            string privatekey = "****";
+            string publickey = "668f798d129fc2a07015b8d13103af67";
+            string privatekey = "a492c5096c61d669c7dd6c488cccd358f26771d3";
             string ts = DateTime.Now.Ticks.ToString();
             string hash = GerarHash(ts, publickey, privatekey);
             request.Resource = $"/v1/public/characters?ts={ts}&apikey={publickey}&hash={hash}";
@@ -83,8 +83,8 @@ namespace MarvelWeb.Controllers
                 client.DefaultRequestHeaders.Accept.Add(
                     new MediaTypeWithQualityHeaderValue("application/json"));
 
-                string publickey = "***";
-                string privatekey = "****";
+                string publickey = "668f798d129fc2a07015b8d13103af67";
+                string privatekey = "a492c5096c61d669c7dd6c488cccd358f26771d3";
                 string ts = DateTime.Now.Ticks.ToString();
                 string hash = GerarHash(ts, publickey, privatekey);
 
